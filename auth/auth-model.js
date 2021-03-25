@@ -1,23 +1,19 @@
-const db = require('../data/db-config')
+const db = require("../data/db-config");
 
 module.exports = {
-    addUser,
-    findBy,
-    getUsers,
+  addUser,
+  findBy,
+  getUsers,
+};
 
+function addUser(credentials) {
+  return db("users").insert(credentials);
 }
 
-function addUser(credentials){
-    return db('users')
-    .insert(credentials)
-    
+function findBy(filter) {
+  return db("users").where(filter).first();
 }
 
-function findBy(filter){
-    return db('users')
-    .where(filter).first()
-}
-
-function getUsers(){
-    return db('users')
+function getUsers() {
+  return db("users");
 }
